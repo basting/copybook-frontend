@@ -1,0 +1,55 @@
+<div fxLayout="column" fxFlexFill>
+  <mat-toolbar
+    class="mat-elevation-z8 p-0"
+    fxLayout="row"
+    fxLayoutAlign="start stretch"
+    style="z-index: 2">
+    <button mat-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <button mat-button routerLink="/">
+      <mat-icon>home</mat-icon>
+    </button>
+
+    <div
+      fxLayout="row"
+      fxLayoutAlign="start center"
+      fxLayoutGap="15px"
+      class="pl-3">
+      <span>Copy Book Application</span>
+    </div>
+
+    <span fxFlex></span>
+
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+      <button
+        mat-button
+        routerLink="/about"
+        routerLinkActive="router-link-active no-border">
+        About
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-drawer-container fxFlex autosize class="background">
+    <mat-drawer #drawer>
+      <div fxLayout="column">
+        <button
+          mat-button
+          routerLink="/about"
+          routerLinkActive="selected no-border txt-bold"
+          fxLayoutAlign="start"
+          class="py-2 pr-5">
+          <mat-icon class="mr-2">info</mat-icon>About
+        </button>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-drawer>
+
+    <!--PAGES-->
+    <div style="display: inline">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+</div>
